@@ -1,0 +1,4 @@
+policies:
+  - name: my-gateway-policy
+    resource: aws.appmesh-virtual-gateway
+      

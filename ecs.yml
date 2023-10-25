@@ -1,0 +1,12 @@
+policies:
+  - name: fargate-tasks
+    resource: ecs-task
+    #filters:
+    #  - launchType: FARGATE
+    #  - type: task-definition
+    #    key: "containerDefinitions[].readonlyRootFilesystem"
+    #    value: None
+    #    value_type: swap
+    #    op: contains
+    #actions:
+    ###  - type: stop
