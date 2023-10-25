@@ -1,0 +1,3 @@
+policies:
+  - name: my-node-policy
+    resource: aws.appmesh-virtual-node

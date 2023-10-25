@@ -1,0 +1,3 @@
+policies:
+  - name: my-mesh-policy
+    resource: aws.appmesh-mesh
