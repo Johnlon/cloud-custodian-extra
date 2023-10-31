@@ -1,12 +1,16 @@
+
 policies:
-  - name: fargate-tasks
-    resource: ecs-task
+  - name: my-ecs
+    resource: ecs
     #filters:
-    #  - launchType: FARGATE
-    #  - type: task-definition
-    #    key: "containerDefinitions[].readonlyRootFilesystem"
-    #    value: None
-    #    value_type: swap
-    #    op: contains
-    #actions:
-    ###  - type: stop
+    #  - type: ebs-storage
+    #    key: Encrypted
+    #    value: true
+    mode:
+      type: cloudtrail
+      role: CloudCustodian
+      events:
+        - source: 'ecs.amazonaws.com'
+          event: 'CreateCluster'
+          ids: 'responseElements.cluster.clusterArn'
+

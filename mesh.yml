@@ -1,3 +1,13 @@
 policies:
   - name: my-mesh-policy
     resource: aws.appmesh-mesh
+    filters:
+      - type: value
+        key: mesh.spec.egressFilter.type
+        op: eq
+        value: DROP_ALL
+      #- type: value
+      #  key: mesh.meshName
+      #  op: eq
+      #  value: Mesh7
+

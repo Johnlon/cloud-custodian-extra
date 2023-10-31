@@ -1,0 +1,21 @@
+policies:
+  - name: my-mesh-policy
+    resource: aws.appmesh-mesh
+    mode:
+      type: cloudtrail
+      role: CloudCustodian
+      events:
+        - source: 'appmesh.amazonaws.com'
+          event: 'CreateMesh'
+          ids: 'requestParameters.meshName'
+
+          #filters:
+          #- type: value
+          #key: mesh.meshName
+          #op: eq
+          #value: Mesh7
+        #- type: value
+        #key: requestParameters.spec.egressFilter.type
+        #op: difference
+        #value:
+        #  - DROP_ALL_BAD

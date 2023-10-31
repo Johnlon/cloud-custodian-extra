@@ -1,0 +1,12 @@
+
+policies:
+  - name: my-ecs-service
+    resource: aws.ecs-service
+    mode:
+      type: cloudtrail
+      role: CloudCustodian
+      events:
+        - source: 'ecs.amazonaws.com'
+          event: 'CreateService'
+          ids: 'responseElements.service.serviceArn'
+

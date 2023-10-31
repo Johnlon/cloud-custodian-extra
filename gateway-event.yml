@@ -1,0 +1,59 @@
+# Eg event https://eu-west-2.console.aws.amazon.com/cloudtrail/home?region=eu-west-2#/events/722d5582-5151-400f-a7b9-347ce2db304d
+# See https://www.youtube.com/watch?v=FZgAoZgAz8c
+# 
+policies:
+  - name: my-gateway-event-policy
+    resource: aws.appmesh-virtual-gateway
+    mode:
+      type: cloudtrail
+      role: CloudCustodian
+      events:
+        - source: 'appmesh.amazonaws.com'
+          event: 'CreateVirtualGateway'
+          # a simple Id needs the mesh name and vg name to be unique!
+          #ids: 'requestParameters.meshName'
+          ids: 'responseElements.virtualGateway.metadata.arn'
+
+#    filters:
+#      type:
+      
+
+
+#      { ....,
+#
+#          "eventName": "CreateVirtualGateway",
+#    "awsRegion": "eu-west-2",
+#    "sourceIPAddress": "81.101.58.184",
+#
+#      "requestParameters": {
+#        "clientToken": "ed23405c-6699-48da-8e4f-63f3c1993e42",
+#        "meshName": "JohnMesh",
+#        "meshOwner": "659775036450",
+#        "spec": {
+#            "backendDefaults": {
+#                "clientPolicy": {
+#                    "tls": {
+#                        "enforce": true,
+#                        "ports": [],
+#                        "validation": {
+#                            "trust": {
+#                                "file": {
+#                                    "certificateChain": "/the/capath"
+#                                }
+#                            }
+#                        }
+#                    }
+#                }
+#            },
+#            "listeners": [
+#                {
+#                    "portMapping": {
+#                        "port": 333,
+#                        "protocol": "http"
+#                    }
+#                }
+#            ],
+#            "logging": {}
+#        },
+#        "virtualGatewayName": "NewGW"
+#    },

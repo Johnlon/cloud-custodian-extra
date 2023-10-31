@@ -1,0 +1,1 @@
+custodian run ecs.yml --output-dir . --cache-period 0  -v
