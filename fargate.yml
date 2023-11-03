@@ -1,6 +1,7 @@
 policies:
   - name: fargate-tasks
     resource: ecs-task
+
     #filters:
     #  - launchType: FARGATE
     #  - type: task-definition

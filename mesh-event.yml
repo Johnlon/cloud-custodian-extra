@@ -9,13 +9,8 @@ policies:
           event: 'CreateMesh'
           ids: 'requestParameters.meshName'
 
-          #filters:
-          #- type: value
-          #key: mesh.meshName
-          #op: eq
-          #value: Mesh7
-        #- type: value
-        #key: requestParameters.spec.egressFilter.type
-        #op: difference
-        #value:
-        #  - DROP_ALL_BAD
+          filters:
+            - type: value
+              key: mesh.meshName
+              op: eq
+              value: Mesh7

@@ -1,4 +1,16 @@
 policies:
   - name: my-gateway-policy
     resource: aws.appmesh-virtual-gateway
+    filters:
+      #- type: value
+      #  key: meshName
+      #  op: eq
+      #  value: Mesh7
+      
+      # Find instances not enforcing TLS
+      - type: value
+        key: spec.backendDefaults.clientPolicy.tls.enforce
+        op: ne
+        value: true
+
       
